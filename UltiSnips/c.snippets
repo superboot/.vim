@@ -1,0 +1,9 @@
+snippet ff "Add fold markers arround an existing function." bA
+/* ↓↓↓1 def ${1:`!p snip.rv = snip.v.text.split('\n')[0].split('(')[0].strip().split(' ')[1].strip()`}() */
+${0:${VISUAL:Code to be folded}}
+/* ↑↑↑1 END $1 */
+endsnippet
+
+snippet stdio "Include line for standardIO."
+#include <stdio.h>
+endsnippet

@@ -1,0 +1,156 @@
+#Custom Snippet file html.snippet 
+snippet toc "SBKI TOCright template" b
+{{TOCright}}
+endsnippet
+snippet sl "SBKI 'sublink' link to a sub-catagory on this page" b
+[[{{PAGENAME}}#$1|$2]]
+== $1 ==
+endsnippet
+snippet bt "SBKI btts template." 
+{{btt}}
+endsnippet
+snippet wp "Link to wikipedia articles" b
+[[wikipedia:`!v "+p`|${VISUAL:]]
+endsnippet
+snippet fold "SBKI Vim fold open and close tags." 
+<!--    ⑃⑃⑃⑃$1     $2			  -->
+${VISUAL}$3
+<!--    ⑂⑂⑂⑂$1     END $2        -->
+endsnippet
+snippet ref "SBKI Build reference section." b
+<!--    ///     REFERENCES			  -->
+== References ==
+{{btt}}
+<references />
+<!--    \\     END REFERENCES        -->
+endsnippet
+snippet hypo "SBKI hyperlink, outside." b
+[$1 $2]
+endsnippet
+snippet hypi "SBKI hyperlink, inside." b
+[[$1|$2]]
+endsnippet
+snippet mda "HTML emdash escape character." w
+&mdash; 
+endsnippet
+snippet now "SBKI nowiki tags, fore and aft." 
+  <nowiki>$0</nowiki>
+endsnippet
+snippet sec2 "SBKI Section two." 
+<!--    ⑃⑃⑃⑃1     $1			  -->
+== $1 ==
+$2
+<!--    ⑂⑂⑂⑂1     END $1         -->
+endsnippet
+snippet sec3 "SBKI Section three." b
+<!--    ⑃⑃⑃⑃2     $1			  -->
+=== $1 ===
+$2
+<!--    ⑂⑂⑂⑂2     END $1         -->
+endsnippet
+snippet sec4 "SBKI Section three." b
+<!--    ⑃⑃⑃⑃3     $1			  -->
+==== $1 ====
+$2
+<!--    ⑂⑂⑂⑂3     END $1         -->
+endsnippet
+snippet slk "SBKI link" 
+[[$1|$2]]
+endsnippet
+snippet tocr "SBKI table of contents on the right template." 
+{{TOCright}}
+$0
+endsnippet
+snippet bts "SBKI blank SBKI table as section two." 
+== $1 ==
+{{btt}}
+{| border="1" cellpadding="10"
+	|+ style="background:#094815; color:white" |
+		<big>'''$1'''</big>
+	|- style="background:#517d59; color:white" |
+		! Action !! Keyboard !! Description
+	|-
+	|-	valign="top"
+		|
+		|
+		|
+	|-
+	|-	valign="top"
+		|
+		|
+		|
+	|-
+	<!-- Blank Row -- DO NOT OVERWRITE
+	|-	valign="top"
+		|
+		|
+		|
+	|-
+	   END Blank Row -- DO NOT OVERWRITE  -->
+|}
+endsnippet
+snippet bts3 "SBKI blank SBKI table as new section three." 
+=== $1 ===
+{{probtts|$2|$2}}
+{| border="1" cellpadding="10"
+	|+ style="background:#094815; color:white" |
+		<big>'''$1'''</big>
+	|- style="background:#517d59; color:white" |
+		! Action !! Keyboard !! Description
+	|-
+	|-	valign="top"
+		|
+		|
+		|
+	|-
+	|-	valign="top"
+		|
+		|
+		|
+	|-
+	<!-- Blank Row -- DO NOT OVERWRITE
+	|-	valign="top"
+		|
+		|
+		|
+	|-
+	   END Blank Row -- DO NOT OVERWRITE  -->
+|}
+endsnippet
+snippet media "SBKI Media link template" b
+[[Media:$1|$2]]
+endsnippet
+snippet image "SBKI display image" b
+[[File:${1:filename}|${2:150px}|${3:right}|${4:thumb}|${5:Caption}]]
+endsnippet
+
+
+#This is an attempt to take a wiki section and wrap it in fold markers, adding the section title to the fold comment.
+snippet sf "SBKI Vim fold open and close tags arround section, placing section title in fold comment." 
+`!p
+try:
+	titleLine = snip.v.text.split('\n')[0]
+	if titleLine.startswith('='):
+		level = len(titleLine.split()[0])
+except:
+	level = 1
+
+try:
+	title = snip.v.text.split('\n')[0].strip('=').strip()
+except:
+	title = 'title'
+snip.rv = snip.rv + '<!--    ⑃⑃⑃⑃{number}     {title}			  -->\n'.format(title=title, number = level)
+snip.rv = snip.rv + snip.v.text
+snip.rv = snip.rv +  '<!--    ⑂⑂⑂⑂{number}     END {title}        -->'.format(title=title, number = level)
+`
+endsnippet
+
+snippet reclass "wraps character classes in apropiot [[::]]."
+`!p
+lines = []
+for line in snip.v.text.split('\n'):
+	if not line.isspace():
+		lines.append('[[:' + line.strip() + ':]]')
+lines = lines[:-1]
+snip.rv = str.join('|', lines)`${0}
+endsnippet

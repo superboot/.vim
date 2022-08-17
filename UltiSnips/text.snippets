@@ -1,0 +1,138 @@
+snippet call "Refference call audio with wiki media link."
+[[media:${1:`xsel -b`}|Call Audio]]
+endsnippet
+
+snippet file "Refference a filename in the clipboard."
+[[media:${1:`xsel -b`}|$1]]
+endsnippet
+
+snippet history "Add history and notes section"
+== History and notes ==
+{{btt}}
+$0
+endsnippet
+
+snippet contact "add contact info section"
+== Contact information ==
+*Phone: $1 (`!p snip.rv = ''.join(c for c in t[1] if c.isdigit())`)
+endsnippet
+
+snippet login "adds a login section."
+== Login info ==
+[$1 login page]
+*username: $2
+*password: $3
+endsnippet
+
+snippet ent "History entry"
+`!v strftime("%m/%d/%y %T")"` &mdash; $1 ~~~
+
+endsnippet
+
+snippet media "compose a media entry"
+[[media:`xsel -b`|$1]]
+endsnippet
+
+snippet case "wiki case link" 
+{{Case|caseno=$1}}$0
+endsnippet
+
+snippet	grace "adds a grace notice row to the table. Uses a handy interface that can be deleted later"
+******************************
+Case number: $1
+Last payment ammount: $2
+Last payment date: $3
+Laps date: $4
+Amount requested: $5
+Date of letter: $6
+PDF file name: $7
+Life company: $8
+******************************
+	|-	|valign="top"
+		|valign="middle" align="center" |$1
+        |align="right" |$2<br>$3
+		|align="center" style="border-left:2px solid #FF0000;" |$4
+		|valign="middle" align="right" |$5
+        |align="center" style="border-right:2px solid #FF0000;" |[[media:$7|$8<br>$6 (pdf)]]  
+		|valign="middle" align="center" |<span title="Login for this link to work">[https://www.anysia.net/Inventory/index.php?req=view&id=$1 Inventory]</span>
+		|valign="middle" align="center" |[[Policy Administration -- Case $1|SBKI]]
+		|align="center" |Not Paid Yet
+		|align="center" |Not Paid Yet
+|-
+
+endsnippet
+
+snippet	graced "adds a grace notice row to the table. Uses a handy interface that can be deleted later"
+******************************
+Case number: $1
+Last payment ammount: $2
+Last payment date: $3
+Laps date: $4
+Amount requested: $5
+Date of letter: $6
+PDF file name: $7
+Life company: $8
+******************************
+`!p
+snip.rv = '''
+	|-	|valign="top"
+		|valign="middle" align="center" |{0}
+        |align="right" |{1}<br>{2}
+		|align="center" style="border-left:2px solid #FF0000;" |{3}
+		|valign="middle" align="right" |{4}
+        |align="center" style="border-right:2px solid #FF0000;" |[[media:{6}|{h}<br>{5} (pdf)]]  
+		|valign="middle" align="center" |<span title="Login for this link to work">[https://www.anysia.net/Inventory/index.php?req=view&id={0} Inventory]</span>
+		|valign="middle" align="center" |[[Policy Administration -- Case {0}|SBKI]]
+		|align="center" |Not Paid Yet
+		|align="center" |Not Paid Yet
+|-
+'''.format(*t)
+`
+endsnippet
+
+snippet	x "adds a grace notice row to the table. Uses a handy interface that can be deleted later"
+******************************
+Case number: 
+Last payment ammount: $1
+******************************
+`!p
+if not snip.c:
+	snip.rv = t.__getitem__(1)
+	snip.rv = snip.rv + t.__getitem__(2)
+
+#snip.rv=str(snip.c)
+
+#c = 0
+#for i in t[0:-1]:
+
+#for i in t:
+# for i in range(5):
+	#c += 1
+
+#holdThis = 'Hello zero:  ' + str(c)
+#if not snip.c:
+	#snip.rv = 'Sending ' + holdThis
+	#'''
+	#hello {a}
+	#'''.format(a = t[1])
+`
+endsnippet
+
+
+snippet	y "adds a grace notice row to the table. Uses a handy interface that can be deleted later"
+******************************
+1: $1
+2: $2
+3: $3
+4: $4
+5: $5
+******************************
+
+*****
+`!p snip.rv = '1: {}'.format(t[1]) `
+`!p snip.rv = '2: {}'.format(t[2]) `
+`!p snip.rv = '3: {}'.format(t[3]) `
+`!p snip.rv = '4: {}'.format(t[4]) `
+`!p snip.rv = '5: {}'.format(t[5]) `
+****
+endsnippet

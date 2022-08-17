@@ -1,0 +1,251 @@
+snippet #! "create a new boiler plate script"
+#!/bin/bash
+## ${1:DOCSTRING}
+## `strftime("%m/%d/%y %T")"` --Superboot
+
+. ~/.bash_utility_functions
+endsnippet
+
+snippet min "Calls the minimumArguments function with less typing."
+minimumArguments ${1} "$@"
+endsnippet
+
+snippet cb "add a crunch bang line" !b
+#!/bin/bash
+$0
+endsnippet
+
+snippet ff "Add fold markers arround an existing function."
+# ↓↓↓1 def ${1:`!p snip.rv = snip.v.text.split('\n')[0].split('(')[0].strip()`}()
+${0:${VISUAL:Code to be folded}}
+# ↑↑↑1 END $1
+endsnippet
+
+snippet wrl "while read line block."
+while read line
+do
+	${0::}
+done
+endsnippet
+
+snippet reif "Regex if"
+if [[ $1 =~ ${2:no-quotes-arround-regex} ]]; then
+	${3::}
+fi
+endsnippet
+
+snippet f1 "Fold selected code"
+# ↓↓↓1 ${1:FOLD TITLE}
+${0:${VISUAL:Code to be folded}}
+# ↑↑↑1 END $1
+endsnippet
+
+snippet f2 "Fold selected code"
+# ↓↓↓2 ${1:FOLD TITLE}
+${0:${VISUAL:Code to be folded}}
+# ↑↑↑2 END $1
+endsnippet
+
+snippet f3 "Fold selected code"
+# ↓↓↓3 ${1:FOLD TITLE}
+${0:${VISUAL:Code to be folded}}
+# ↑↑↑3 END $1
+endsnippet
+
+snippet f4 "Fold selected code"
+# ↓↓↓4 ${1:FOLD TITLE}
+${0:${VISUAL:Code to be folded}}
+# ↑↑↑4 END $1
+endsnippet
+
+snippet =$( "Command substitution" iA
+="$($0)"
+endsnippet
+
+snippet "\$[a-zA-Z][a-zA-Z0-9-]*" "Quote variables" ir
+`!p snip.rv = '"{x}"'.format(x=match.group())`
+endsnippet
+
+snippet dumbHold "Quote variables" ir
+`!p snip.rv = '"{match}"'.format(match=match.string)`
+`!p snip.rv = '"{match}"'.format(match=match)`
+endsnippet
+
+snippet parse "Parse commandline arguments loop."
+while [[ "$#" -gt 0 ]]
+do
+    case "\$1" in
+        --$1|-$2)
+            ${3::}
+            ;;
+    esac
+done
+
+endsnippet
+
+snippet fold "Fold selected code"
+# ↓↓↓ ${1:FOLD TITLE}
+${0:${VISUAL:Code to be folded}}
+# ↑↑↑ END $1
+endsnippet
+
+snippet do "A do done block"
+do
+    $0
+done
+endsnippet
+
+snippet def "define a function"
+# ↓↓↓ def $1()
+${1:Function Title}() {
+    local _DOCSTRING="${2:Docstring}"
+    local _USAGE="Usage: $1 $3"
+	functionTracingDebug "$@"
+`!p
+snip.shift() # Indents the output of mkline() by one vim shift-width.
+paramString = t[3]
+if paramString == '':
+	snip.rv = ''
+else:
+	parameters = paramString.split()
+	manditoryArgs = []
+	optionalArgs = []
+	optionalArgDefaults = []
+	localVarsLine = 'local ' # Start a bash declaration of variables local to the function.
+	for param in parameters:
+		if param.startswith('['): # It's an optional argument.
+		    param = param.strip('[]')
+			if param != '': # If the parameter is not empty.
+				if param.find('=') >= 0: # If it contains an equals sign. (.find returns an index of the item, or -1 if not found.)
+					param, default, *crap = param.split('=') # Get the option name and the default value specified in the signature.
+				else:
+					default = None # There is no default, so add a None to the list to keep the indexes in sync.
+				optionalArgs.append(param)
+				optionalArgDefaults.append(default)
+				del default # cleanup.
+		else: # It's a manditory argument.
+		    param = param.strip('<>')
+			if param != '': # If the parameter is not empty.
+				manditoryArgs.append(param)
+		localVarsLine += ' {}'.format(param)
+	snip += localVarsLine
+	snip += 'minimumArguments {} "$@" || return 3'.format(len(manditoryArgs))
+	for param in manditoryArgs:
+		snip += '{p}="${v}"'.format(p=param, v=manditoryArgs.index(param) + 1)
+	for idx, param in enumerate(optionalArgs):
+		numberOfManditoryArgs = len(manditoryArgs)
+		dollarNumber = numberOfManditoryArgs + idx + 1
+		defaultValue = optionalArgDefaults[idx] or "your default value here" # If there is no default specified in the function signature, it will be None, and so Python will assign "default" to the variable here.
+		snip += '{name}="${{{dollarNumber}:-{defaultValue}}}"'.format(name = param, dollarNumber = dollarNumber , defaultValue = defaultValue) # Find how many spots after the manitory args this one is.
+`
+${4:`!p
+lines = []
+snip.shift() # Indent it one time.
+for line in snip.v.text.split('\n'):
+	snip += line
+`}
+}
+# ↑↑↑ END $1
+${0}
+endsnippet
+
+snippet reor "From: one option per line. To: descrete OR'ed option regex."
+`!p
+lines = []
+for line in snip.v.text.split('\n'):
+	if not line.isspace():
+		lines.append('^' + line.strip() + '$')
+lines = lines[:-1]
+snip.rv = str.join('|', lines)`${0}
+endsnippet
+
+snippet sketch "Listing the function calls of the main loop builds the def blocks required to write them."
+`!p
+pass
+`
+endsnippet
+
+snippet if "If [[ testing ]] outline."
+if $1; then
+    ${0::}
+fi
+endsnippet
+
+snippet t "a [[ test frame."
+[[ $1 ]]$0
+endsnippet
+
+#########START COLORS ########
+# Green
+snippet grn "BASH script green." i
+${bold}${green}
+endsnippet
+
+# Purple
+snippet prpl "BASH script purple." w
+${bold}${purple}
+endsnippet
+
+# Red -- bold
+snippet red "BASH script bold red." i
+${bold}${red}
+endsnippet
+
+# Yellow -- bold
+snippet ylw "BASH script yellow." w
+${bold}${yellow}
+endsnippet
+
+snippet cyn "BASH script cyan." i
+${bold}${cyan}
+endsnippet
+
+snippet cvadg "BASH CVACorp dark green (tput #65)." i
+${bold}${cvagDark}
+endsnippet
+
+snippet cvamg "BASH CVACorp medium green (tput #78)." i
+${bold}${cvagMed}
+endsnippet
+
+snippet cvalg "BASH CVACorp light green (tput #114)." i
+${bold}${cvagLight}
+endsnippet
+
+snippet cvastg "BASH CVACorp lightest green (tput #194)." i
+${bold}${cvagLightest}
+endsnippet
+
+snippet nrm "BASH script normal." i
+${normal}
+endsnippet
+
+snippet dbl "BASH script blue (tput #21)." i
+${bold}${dodgerBlue}
+endsnippet
+
+### END COLORS ###
+
+snippet varval "Simple variable-value display." b
+echo "${bold}${blue}$1:  ${bold}${green}$$1${normal}"
+endsnippet
+
+
+snippet dbln "Debug Line Number" i
+${bold}${alertRed}${LINENO}${normal}
+endsnippet
+
+snippet dblnf "Debug Line Number FULL" i
+echo "${bold}${alertRed}DEBUG #${LINENO}${normal}. $1"
+endsnippet
+
+snippet lineCheck "A read loop for checking each line of a file."
+while read line
+do
+	if [[ "$line" $1 ]]; then
+		${2::}
+	fi
+	${3::}
+done
+endsnippet
+

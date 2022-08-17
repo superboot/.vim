@@ -1,0 +1,1069 @@
+priority 10
+#Custom Snippet file html.snippet 
+
+#	COMPANY ABBREVIATIONS
+# company abbreviations and links; a link results by adding "L" to the simple
+#	abbreviation.
+# Abbreviations
+# Inserts a random password surrounded by parentheses.
+snippet pwg "SBKI Inserts random password surrounded by parentheses." w
+(`pwg`) $0
+endsnippet
+
+snippet check "Insert a red checkmark."
+<font color=red>✓</font> 
+endsnippet
+
+snippet zero "Insert a red zero."
+<font color=red>0</font> 
+endsnippet
+
+
+# For use with the MediaWiki package, Cite.
+snippet secref "SBKI reference section for Cite."
+<!--    ↓↓↓1     REFERENCES			  -->
+
+<!--     -->
+== References ==
+{{btt}}
+<references />
+
+<!--    ↑↑↑1     END REFERENCES	-->
+$1
+endsnippet
+
+# Added 13th week after the octave of Pentecost, 08/21/2018 19:11, lastm
+snippet code "SBKI code tags." i
+<code>$1</code>$2
+endsnippet
+	
+snippet rdk "SBKI red checkmark." i
+<font color=RED>&#x2713;</font>  
+endsnippet
+
+snippet ldr "For editing .vimrc.  Sets up leader macros." i
+{{key press|,}} {{key press|$1}}$2
+endsnippet
+
+snippet logb "SBKI website login block template" b
+<!--    ↓↓↓1     Login			  -->
+
+<!--     -->
+== Login ==
+{{btt}}
+Username:  ($1)<br>
+Password:  ($2)<br>
+Security 1 [Q / A]:  ($3) ($4)<br>
+Security 2 [Q / A]:  ($5) ($6)<br>
+Security 3 [Q / A]:  ($7) ($8)<br>
+Security 4 [Q / A]:  (Z) (Z)<br>
+
+
+<!--    ↑↑↑1     END Login        -->
+endsnippet
+
+# Multi-column lists
+snippet mcl2 "SBKI multi-column list.  Two." b
+<div style="column-count:2;-moz-column-count:2;-webkit-column-count:2">
+$1
+</div>
+$2
+endsnippet
+
+snippet mcl3 "SBKI multi-column list.  Three." b
+<div style="column-count:3;-moz-column-count:3;-webkit-column-count:3">
+$1
+</div>
+$2
+endsnippet
+
+snippet mcl4 "SBKI multi-column list.  Four." b
+<div style="column-count:4;-moz-column-count:4;-webkit-column-count:4">
+$1
+</div>
+$2
+endsnippet
+
+snippet lclets "Column listing of lower-case A-Z" b
+a$0
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+endsnippet
+
+snippet uclets "Column listing of upper-case A-Z" b
+A$0
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+M
+N
+O
+P
+Q
+R
+S
+T
+U
+V
+W
+X
+Y
+Z
+endsnippet
+	
+
+
+snippet bq "SBKI blockquote tags." b
+<blockquote>
+$1
+</blockquote>
+endsnippet
+
+snippet term "SBKI term format." b 
+<b><small>$1</small></b> &mdash; $2
+endsnippet
+snippet afm "SBKI AFM completion." 
+AFM 
+endsnippet
+snippet atl "SBKI Attilanus completion." 
+Attilanus 
+endsnippet
+snippet cva "SBKI CVACorp completion." 
+CVACorp 
+endsnippet
+snippet lsr "SBKI LASAR completion." 
+LASAR 
+endsnippet
+snippet slsh "SBKI SLSH completion." 
+SLSH 
+endsnippet
+# Abbreviations w/links ("L")
+snippet afmL "SBKI AFM completion." 
+[[Anysia Financial Management, LLC|AFM]] 
+endsnippet
+snippet atlL "SBKI Attilanus completion." 
+[[The Attilanus Fund I, L.P.|Attilanus]] 
+endsnippet
+snippet cvaL "SBKI CVACorp completion." 
+[[Clear View Advisors Corporation|CVACorp]] 
+endsnippet
+snippet lsrL "SBKI LASAR completion." 
+[[Life Settlements Absolute Return I, LLC|LASAR]] 
+endsnippet
+snippet slshL "SBKI SLSH completion." 
+[[Senior LS Holdings, LLC|SLSH]] 
+endsnippet
+#	END COMPANY ABBREVIATIONS
+
+snippet prourl "SBKI outside URL citation." b
+{{prourlsource|1=
+$1
+|2=
+$2
+}}
+$3
+endsnippet
+snippet locurl "SBKI internal citation" b
+{{localsource|
+ls-name=
+$1
+|ls-display=
+$2
+}}
+$3
+endsnippet
+snippet pdftk "Setup for a pdftk statement" b
+pdftk 
+A=$2
+B=$3
+C=$4
+cat 
+A$5
+B$6
+C$7
+output 
+$1
+$7
+endsnippet
+
+
+snippet br "SBKI/HTML CR/Linefeed" i
+<br>
+
+endsnippet
+snippet brn "SBKI/HTML CR/Linefeed" i
+<br>
+endsnippet
+snippet bt "SBKI btts template." 
+{{btt}}
+endsnippet
+snippet btp "SBKI probtts template." b
+{{probtts|$1|$1}}
+endsnippet
+snippet case "SBKI case template." w
+{{Case|caseno=$1}} 
+endsnippet
+snippet ccon "SBKI category-contacts template." w
+{{catcon}}
+$1
+endsnippet
+snippet cline "SBKI component page top line." b
+<i>This is a component of the [[$1|$1 page]].</i>
+
+$2
+endsnippet
+snippet dpi "SBKI divide w/pipe" i
+<nowiki> | </nowiki>$0
+endsnippet
+snippet folda "SBKI Vim fold open and close tags." 
+<!--    ↓↓↓1     $1			  -->
+
+<!--     -->
+${VISUAL}
+
+<!--    ↑↑↑1     END $1        -->
+$2
+endsnippet
+snippet folda2 "SBKI Vim fold open and close tags." 
+<!--    ↓↓↓2     $1			  -->
+
+<!--     -->
+${VISUAL}
+
+<!--    ↑↑↑2    END $1        -->
+$2
+endsnippet
+snippet folda3 "SBKI Vim fold open and close tags." 
+<!--    ↓↓↓3     $1			  -->
+
+<!--     -->
+${VISUAL}
+
+<!--    ↑↑↑3    END $1        -->
+$2
+endsnippet
+snippet folda4 "SBKI Vim fold open and close tags." 
+<!--    ↓↓↓4     $1			  -->
+
+<!--     -->
+${VISUAL}
+
+<!--    ↑↑↑4    END $1        -->
+$2
+endsnippet
+
+snippet fold "SBKI Vim fold open and close tags." 
+<!--    ///     $1			  -->
+$2
+${VISUAL}
+<!--    \\\\\\     END $1        -->
+endsnippet
+
+snippet foldr1 "SBKI Vim fold open and close tags.  Developed for Rhtml." 
+<!--	***1		$1			-->
+
+<!--	-->
+$2
+
+<!--	^^^1	END		$1       -->
+endsnippet
+snippet foldr2 "SBKI Vim fold open and close tags.  Developed for Rhtml." 
+<!--	***2		$1			-->
+
+<!--	-->
+$2
+
+<!--	^^^2	END		$1       -->
+endsnippet
+snippet foldr3 "SBKI Vim fold open and close tags.  Developed for Rhtml." 
+<!--	***3		$1			-->
+
+<!--	-->
+$2
+
+<!--	^^^3	END		$1       -->
+endsnippet
+snippet foldr4 "SBKI Vim fold open and close tags.  Developed for Rhtml." 
+<!--	***4		$1			-->
+
+<!--	-->
+$2
+
+<!--	^^^4	END		$1       -->
+endsnippet
+snippet foldc1 "CSS fold marker, mediawiki" b
+/*		↓↓↓1     $1			  */
+
+/*   */
+$2
+
+/*        ↑↑↑1     END $1        */
+endsnippet
+snippet foldc2 "CSS fold marker, mediawiki" b
+/*		↓↓↓2     $1			  */
+
+/*   */
+$2
+
+/*        ↑↑↑2     END $1        */
+endsnippet
+snippet foldc3 "CSS fold marker, mediawiki" b
+/*		↓↓↓3     $1			  */
+
+/*   */
+$2
+
+/*        ↑↑↑3     END $1        */
+endsnippet
+snippet foldc4 "CSS fold marker, mediawiki" b
+/*		↓↓↓4     $1			  */
+
+/*   */
+$2
+
+/*        ↑↑↑4     END $1        */
+endsnippet
+
+snippet foldsp1 "SBKI Vim fold open and close tags.  Works w/PHP." 
+//	***1		$1
+
+$2
+
+//	^^^1	END		$1        
+endsnippet
+snippet foldsp2 "SBKI Vim fold open and close tags.  Works w/PHP." 
+//	***2		$1
+
+$2
+
+//	^^^2	END		$1       
+endsnippet
+snippet foldsp3 "SBKI Vim fold open and close tags.  Works w/PHP." 
+//	***3		$1
+
+$2
+
+//	^^^3	END		$1      
+endsnippet
+snippet foldsp4 "SBKI Vim fold open and close tags.  Works w/PHP." 
+//	***4		$1
+
+$2
+
+//	^^^4	END		$1     
+endsnippet
+snippet foldsk1 "SBKI Vim fold open and close tags.  Works w/PHP." 
+<!--    ***1		$1   -->
+
+$2
+
+<!-- //	^^^1	END		$1         -->
+endsnippet
+snippet foldsk2 "SBKI Vim fold open and close tags.  Works w/PHP." 
+<!--    ***2		$1   -->
+
+$2
+
+<!-- //	^^^2	END		$1         -->
+endsnippet
+snippet foldsk3 "SBKI Vim fold open and close tags.  Works w/PHP." 
+<!--    ***3		$1   -->
+
+$2
+
+<!-- //	^^^3	END		$1         -->
+endsnippet
+snippet foldsk4 "SBKI Vim fold open and close tags.  Works w/PHP." 
+<!--    ***4		$1   -->
+
+$2
+
+<!-- //	^^^4	END		$1         -->
+endsnippet
+snippet ftp "SBKI filetype pdf, end link." w
+(pdf)]].
+endsnippet
+snippet ht "HTML, set html-head-body tags." 
+<html>
+	<head>
+		<title>$1</title>
+	</head>
+	<body>
+		<h1>$1</h1>
+	</body>
+</html>
+endsnippet
+snippet hypo "SBKI hyperlink, outside." w
+[$1 ${2:$1}]
+endsnippet
+snippet hypi "SBKI hyperlink, inside." w
+[[$1|${2:$1}]]
+endsnippet
+snippet lma "SBKI addressee paragraph." b
+<p class=lm_address_blocker>
+$0<br>
+</p>
+endsnippet
+snippet mda "HTML emdash escape character." w
+&mdash; 
+endsnippet
+snippet meda "SBKI media in a sentence (alone)." w
+[[media:${1:document}|${2:Description} (pdf)]]$3
+endsnippet
+snippet medl "SBKI media in a list." w
+* [[media:${1:document}|${2:Description} (pdf)]].
+
+endsnippet
+snippet now "SBKI nowiki tags, fore and aft." 
+  <nowiki>$1</nowiki>
+$2
+endsnippet
+snippet pg "SBKI page citation." w
+ (p. ${1:pageno}/435)$2
+endsnippet
+snippet pp "SBKI multiple page citation." w
+ (pp. ${1:start}-${2:end}/435)$3
+endsnippet
+snippet pre "SBKI pre tags, fore and aft." 
+<pre>
+$0
+</pre>
+endsnippet
+snippet rdc "SBKI Redirect." i
+#REDIRECT[[$1]]
+endsnippet
+snippet ref "SBKI Build reference section." b
+<!--    ///     REFERENCES			  -->
+== References ==
+{{btt}}
+<references />
+<!--    \\     END REFERENCES        -->
+endsnippet
+snippet sec2 "SBKI Section two." 
+== $1 ==
+{{btt}}
+$2
+endsnippet
+snippet sec3 "SBKI Section three." b
+=== $1 ===
+{{probtts|$2|$2}}
+
+endsnippet
+snippet sechis "SBKI History and Notes Section." 
+<!--    ↓↓↓1     HISTORY AND NOTES			  -->
+
+<!--     -->
+== History and Notes ==
+{{btt}}
+$0
+
+
+<!--    ↑↑↑1     END HISTORY AND NOTES        -->
+endsnippet
+snippet slk "SBKI link" 
+[[$1|$2]]
+endsnippet
+snippet spi "SBKI span tag w/id, fore and aft." 
+<span id=$1>$2</span>
+endsnippet
+snippet tc "SBKI terminal command." b
+<span id=
+TARGET NAME    
+
+>
+COMMAND TITLE
+
+</span>
+  <nowiki>
+ cd  
+ "
+DIRECTORY LOCATION
+
+ "
+</nowiki>
+$1
+Note:  Enter the required information under the ALL CAP headers; delete this line and the ALL CAP headers; and JOIN all lines.
+endsnippet
+snippet tocr "SBKI table of contents on the right template." 
+{{TOCright}}
+$0
+endsnippet
+snippet bts "SBKI blank SBKI table as section two." 
+== $1 ==
+{{btt}}
+{| border="1" cellpadding="10"
+	|+ style="background:#094815; color:white" |
+		<big>'''$1'''</big>
+	|- style="background:#517d59; color:white" |
+		! Action !! Keyboard !! Description
+	|-
+	|-	valign="top"
+		|
+		|
+		|
+	|-
+	|-	valign="top"
+		|
+		|
+		|
+	|-
+	<!-- Blank Row -- DO NOT OVERWRITE
+	|-	valign="top"
+		|
+		|
+		|
+	|-
+	   END Blank Row -- DO NOT OVERWRITE  -->
+|}
+endsnippet
+snippet bts3 "SBKI blank SBKI table as new section three." 
+=== $1 ===
+{{probtts|$2|$2}}
+{| border="1" cellpadding="10"
+	|+ style="background:#094815; color:white" |
+		<big>'''$1'''</big>
+	|- style="background:#517d59; color:white" |
+		! Action !! Keyboard !! Description
+	|-
+	|-	valign="top"
+		|
+		|
+		|
+	|-
+	|-	valign="top"
+		|
+		|
+		|
+	|-
+	<!-- Blank Row -- DO NOT OVERWRITE
+	|-	valign="top"
+		|
+		|
+		|
+	|-
+	   END Blank Row -- DO NOT OVERWRITE  -->
+|}
+endsnippet
+snippet spsec2 "SBKI special project section two." 
+== $1 ==
+{{btt}}
+<!--    ///     $1			  -->
+{| border="1" cellpadding="10"
+    |+ style="background:#094815; color:white" |
+        <big>'''$1'''</big>
+    |- style="background:#517d59; color:white" |
+        ! Description !! UltiSnips Syntax !! Display
+    |-
+    <!-- Blank Row -- DO NOT OVERWRITE
+    |-	valign="top"
+        |align="center"
+
+        |
+
+        |
+
+    |-
+       END Blank Row -- DO NOT OVERWRITE  -->
+|}
+<!--    \\     END $1        -->
+endsnippet
+snippet tag "HTML basic tag" i
+<${1:span}>$2</${1/(\w+).*/$1/}>
+endsnippet
+snippet tektag "SBKI technical class listing tags." b
+    <li><strong><code class="technical">$1</code></strong>:  $2</li>
+endsnippet
+snippet toc "SBKI TOCright template" b
+{{TOCright}}
+endsnippet
+snippet todo "TODO Reminder" b
+<!-- TODO:  ${1:description} `!v  strftime("%m/%d/%y %H:%M, ")``echo $USER` -->
+$2
+endsnippet
+snippet twtc "SBKI text with terminal command" i
+[[#$1|${2:Wiki text}]]<span id=return-$1></span>
+
+<span id=$1>${3:Terminal title}</span> ([[#return-$1|Return]])
+  <nowiki>${4:program} ${5:file directory}</nowiki>&#47;<nowiki>${6:filename}</nowiki>
+$7
+endsnippet
+snippet kp "SBKI Key press template." i
+{{key press|$1}}
+endsnippet
+snippet kpp "SBKI Key press template w/plus sign." i
+{{key press|$1}}+{{key press|$2}}
+endsnippet
+snippet kpc "SBKI Key press template CTRL w/plus sign." i
+{{key press|CTRL}}+{{key press|$1}}$2
+endsnippet
+snippet kpa "SBKI Key press template ALT w/plus sign." i
+{{key press|Alt}}+{{key press|$1}}$2
+endsnippet
+snippet wik "SBKI Wikipedia link." i
+[[Wikipedia:$1|$2]] $3
+endsnippet
+
+# SBKI blank table snippet
+snippet wktab "SBKI blank table (wiki table)" b
+{| border="1" cellpadding="10"
+	|+ style="background:#094815; color:white" |
+		<big>'''$1'''</big>
+	|- style="background:#517d59; color:white" |
+		! Action !! Keyboard !! Description
+	|-
+	|-	valign="top"
+		|
+		|
+		|
+	|-
+|}
+endsnippet
+
+# SBKI blank single row table snippet
+snippet srtab "SBKI blank single-row table; no heading (wiki table)" b
+{| border="0" cellpadding="10"
+	|-
+	|-	valign="top"
+		|align="left"|
+$1
+		|align="center"|
+
+	|-
+|}
+$2
+endsnippet
+
+
+snippet resp "SBKI response to inquiries." b
+<p class=response>$1</p>
+endsnippet
+
+
+# Temporary snippets for SBKI documentation, 09/21/2017 13:06. 
+snippet rtb "Linked reference to the 2016 trial balance" i
+[[#ws311|#311]] $1
+endsnippet
+snippet rmc "Linked reference to 2016 misc. workpaper #201" i
+[[#ws201|#201]] $1
+endsnippet
+# Why not a permanent one for generic worksheets?  Don't know, here it is:
+snippet rws "Linked reference to a user-defined worksheet number" i
+[[#ws$1|#$1]]$2
+endsnippet
+# And, for the resulting instruction, "i"
+snippet iws "SBKI instruction for referenced worksheet" i
+<span id=ws${1:ws-number}>${2:description}, #$1</span>
+  <nowiki>ooc ${3:fullfilename}</nowiki>
+$4
+endsnippet
+snippet svid "2017 Audit special variable citation." i
+[[SV#$1|<code>$1</code>]]$2
+endsnippet
+
+# Sections with folds
+snippet secres "SBKI section for 'Resources and Links." b
+<!--    ↓↓↓1     RESOURCES AND LINKS			  -->
+
+<!--     -->
+== Resources and Links ==
+{{btt}}
+$1
+
+
+<!--    ↑↑↑1     END RESOURCES AND LINKS	-->
+endsnippet
+
+snippet == "SBKI section with Vim fold open and close tags." b
+<!--    ↓↓↓1     `!p snip.rv = t[1].upper()`			  -->
+
+<!--     -->
+== $1 ==
+{{btt}}
+$2
+${VISUAL}
+
+<!--    ↑↑↑1     END `!p snip.rv = t[1].upper()`	-->
+endsnippet
+
+snippet secf2 "SBKI section with Vim fold open and close tags." b
+<!--    ↓↓↓1     `!p snip.rv = t[1].upper()`			  -->
+
+<!--     -->
+== $1 ==
+{{btt}}
+$2
+${VISUAL}
+
+<!--    ↑↑↑1     END `!p snip.rv = t[1].upper()`	-->
+endsnippet
+
+snippet === "SBKI section with Vim fold open and close tags." b
+<!--    ↓↓↓2     `!p snip.rv = t[1].upper()`			  -->
+
+<!--     -->
+=== $1 ===
+{{probtts|$2|$2}}
+$3
+${VISUAL}
+
+<!--    ↑↑↑2     END `!p snip.rv = t[1].upper()`        -->
+endsnippet
+
+snippet secf3 "SBKI section with Vim fold open and close tags." b
+<!--    ↓↓↓2     `!p snip.rv = t[1].upper()`			  -->
+
+<!--     -->
+=== $1 ===
+{{probtts|$2|$2}}
+$3
+${VISUAL}
+
+<!--    ↑↑↑2     END `!p snip.rv = t[1].upper()`        -->
+endsnippet
+snippet secf4 "SBKI section with Vim fold open and close tags." b
+<!--    ↓↓↓3     `!p snip.rv = t[1].upper()`			  -->
+
+<!--     -->
+==== $1 ====
+{{probtts|$2|$2}}
+$3
+${VISUAL}
+
+<!--    ↑↑↑3     END `!p snip.rv = t[1].upper()`        -->
+endsnippet
+
+snippet ==== "SBKI section with Vim fold open and close tags." b
+<!--    ↓↓↓3     `!p snip.rv = t[1].upper()`			  -->
+
+<!--     -->
+==== $1 ====
+{{probtts|$2|$2}}
+$3
+${VISUAL}
+
+<!--    ↑↑↑3     END `!p snip.rv = t[1].upper()`        -->
+endsnippet
+
+snippet secf5 "SBKI section with Vim fold open and close tags." b
+<!--    ↓↓↓4     `!p snip.rv = t[1].upper()`			  -->
+
+<!--     -->
+===== $1 =====
+{{probtts|$2|$2}}
+$3
+${VISUAL}
+
+<!--    ↑↑↑4     END `!p snip.rv = t[1].upper()`        -->
+endsnippet
+
+snippet ===== "SBKI section with Vim fold open and close tags." b
+<!--    ↓↓↓4     `!p snip.rv = t[1].upper()`			  -->
+
+<!--     -->
+===== $1 =====
+{{probtts|$2|$2}}
+$3
+${VISUAL}
+
+<!--    ↑↑↑4     END `!p snip.rv = t[1].upper()`        -->
+endsnippet
+
+snippet secf6 "SBKI section with Vim fold open and close tags." b
+<!--    ↓↓↓5     `!p snip.rv = t[1].upper()`			  -->
+
+<!--     -->
+====== $1 ======
+{{probtts|$2|$2}}
+$3
+${VISUAL}
+
+<!--    ↑↑↑5     END `!p snip.rv = t[1].upper()`        -->
+endsnippet
+
+snippet ====== "SBKI section with Vim fold open and close tags." b
+<!--    ↓↓↓5     `!p snip.rv = t[1].upper()`			  -->
+
+<!--     -->
+====== $1 ======
+{{probtts|$2|$2}}
+$3
+${VISUAL}
+
+<!--    ↑↑↑5     END `!p snip.rv = t[1].upper()`        -->
+endsnippet
+
+
+snippet fxtk "FedEx tracking link" b
+[http://www.fedex.com/Tracking?action=track&tracknumbers=
+$1
+Track #$1
+]
+endsnippet
+
+snippet upstk "UPS tracking link" b
+[http://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=
+$1
+Track #$1
+]
+endsnippet
+
+snippet pmtk "USPS Priority Mail tracking link" b
+[https://tools.usps.com/go/TrackConfirmAction_input?qtc_tLabels1=
+$1
+Track #$1
+]
+endsnippet
+
+snippet secfhis "SBKI History and Notes Section w/fold." 
+<!--    ↓↓↓2     HISTORY AND NOTES			  -->
+
+<!--     -->
+== History and Notes ==
+{{btt}}
+$1
+
+
+<!--    ↑↑↑2     END HISTORY AND NOTES        -->
+endsnippet
+
+snippet rwk "Reference Wikipedia pages" i
+[[Wikipedia:$1|$1]] $2
+endsnippet
+
+snippet syn "SBKI syntaxhighlight tags" i
+<syntaxhighlight lang="$1">
+$2
+${VISUAL}
+</syntaxhighlight>
+endsnippet
+
+snippet synb "SBKI syntaxhighlight tags" i
+<syntaxhighlight lang="bash">
+$1
+${VISUAL}
+</syntaxhighlight>
+endsnippet
+
+snippet synl "SBKI syntaxhighlight tags with line counts." i
+<syntaxhighlight lang="$1" line>
+$2
+${VISUAL}
+</syntaxhighlight>
+endsnippet
+
+snippet call "Refference call audio with wiki media link."
+[[media:${1:`xsel -b`}|Call Audio]]
+endsnippet
+
+snippet file "Refference a filename in the clipboard."
+[[media:${1:`xsel -b`}|$1]]
+endsnippet
+
+snippet lmedia "The most recent file in the ~/uploads directory."
+[[media:`ls -1tr /home/john/uploads | tail -n1`|$1]]
+endsnippet
+
+snippet uploads "The most recent file in the ~/uploads directory."
+[[media:`ls -1tr /home/john/uploads | tail -n1`|$1]]
+endsnippet
+
+snippet ecm "The most recent file in the ~/doc/ecm directory."
+[[media:`ls -1tr /home/john/doc/ecm | tail -n1`|$1]]
+endsnippet
+
+snippet screenshot "The most recent screenshot in the ~/screenshots directory."
+[[image:`ls -1tr /home/john/screenshots | tail -n1`|center|${1:CAPTION TEXT}]]$0
+endsnippet
+
+snippet screenshotfile "The most recent screenshot in the ~/screenshots directory, inserted as a link."
+[[media:`ls -1tr /home/john/screenshots | tail -n1`|${1:CAPTION TEXT}]]$0
+endsnippet
+
+snippet history "Add history and notes section"
+<!--    ↓↓↓1     HISTORY AND NOTES -->
+
+<!--     -->
+== History and Notes ==
+{{btt}}
+$0
+${VISUAL}
+
+<!--    ↑↑↑1     END HISTORY AND NOTES	-->
+endsnippet
+
+snippet contact "add contact info section"
+<!--    ↓↓↓1     CONTACT INFO -->
+
+<!--     -->
+== Contact Info ==
+* Phone: $1 (`!p snip.rv = ''.join(c for c in t[1] if c.isdigit())`)
+${VISUAL}
+$0
+
+<!--    ↑↑↑1     END CONTACT INFO	-->
+endsnippet
+
+snippet phone "A phone number formatter"
+* ${1:Phone}: $2 (`!p snip.rv = ''.join(c for c in t[2] if c.isdigit())`)
+endsnippet
+
+snippet login "adds a login section."
+<!--    ↓↓↓1     LOGIN INFO -->
+
+<!--     -->
+== Login Info ==
+{{btt}}
+[$1 login page]
+*username: $2
+*password: $3
+
+<!--    ↑↑↑1     END LOGIN INFO	-->
+endsnippet
+
+snippet ent "History entry"
+`!v strftime("%m/%d/%y %T")"` &mdash; $1 ~~~
+
+endsnippet
+
+snippet media "compose a media entry"
+[[media:`xsel -b`|${VISUAL}$1]]
+endsnippet
+
+snippet email "insert my email address."
+rjohndavey@cvacorp.com
+endsnippet
+
+snippet case "wiki case link" 
+{{Case|caseno=$1}}$0
+endsnippet
+
+snippet	grace "adds a grace notice row to the table. Uses a handy interface that can be deleted later"
+******************************
+Case number: $1
+Last payment ammount: $2
+Last payment date: $3
+Laps date: $4
+Amount requested: $5
+Date of letter: $6
+PDF file name: $7
+Life company: $8
+******************************
+	|-	|valign="top"
+		|valign="middle" align="center" |$1
+        |align="right" |$2<br>$3
+		|align="center" style="border-left:2px solid #FF0000;" |$4
+		|valign="middle" align="right" |$5
+        |align="center" style="border-right:2px solid #FF0000;" |[[media:$7|$8<br>$6 (pdf)]]  
+		|valign="middle" align="center" |<span title="Login for this link to work">[https://www.anysia.net/Inventory/index.php?req=view&id=$1 Inventory]</span>
+		|valign="middle" align="center" |[[Policy Administration -- Case $1|SBKI]]
+		|align="center" |Not Paid Yet
+		|align="center" |Not Paid Yet
+|-
+
+endsnippet
+
+snippet	graced "adds a grace notice row to the table. Uses a handy interface that can be deleted later"
+******************************
+Case number: $1
+Last payment ammount: $2
+Last payment date: $3
+Laps date: $4
+Amount requested: $5
+Date of letter: $6
+PDF file name: $7
+Life company: $8
+******************************
+`!p
+snip.rv = '''
+	|-	|valign="top"
+		|valign="middle" align="center" |{0}
+        |align="right" |{1}<br>{2}
+		|align="center" style="border-left:2px solid #FF0000;" |{3}
+		|valign="middle" align="right" |{4}
+        |align="center" style="border-right:2px solid #FF0000;" |[[media:{6}|{h}<br>{5} (pdf)]]  
+		|valign="middle" align="center" |<span title="Login for this link to work">[https://www.anysia.net/Inventory/index.php?req=view&id={0} Inventory]</span>
+		|valign="middle" align="center" |[[Policy Administration -- Case {0}|SBKI]]
+		|align="center" |Not Paid Yet
+		|align="center" |Not Paid Yet
+|-
+'''.format(*t)
+`
+endsnippet
+
+snippet	x "adds a grace notice row to the table. Uses a handy interface that can be deleted later"
+******************************
+Case number: 
+Last payment ammount: $1
+******************************
+`!p
+if not snip.c:
+	snip.rv = t.__getitem__(1)
+	snip.rv = snip.rv + t.__getitem__(2)
+
+#snip.rv=str(snip.c)
+
+#c = 0
+#for i in t[0:-1]:
+
+#for i in t:
+# for i in range(5):
+	#c += 1
+
+#holdThis = 'Hello zero:  ' + str(c)
+#if not snip.c:
+	#snip.rv = 'Sending ' + holdThis
+	#'''
+	#hello {a}
+	#'''.format(a = t[1])
+`
+endsnippet
+
+
+snippet	y "adds a grace notice row to the table. Uses a handy interface that can be deleted later"
+******************************
+1: $1
+2: $2
+3: $3
+4: $4
+5: $5
+******************************
+
+*****
+`!p snip.rv = '1: {}'.format(t[1]) `
+`!p snip.rv = '2: {}'.format(t[2]) `
+`!p snip.rv = '3: {}'.format(t[3]) `
+`!p snip.rv = '4: {}'.format(t[4]) `
+`!p snip.rv = '5: {}'.format(t[5]) `
+****
+endsnippet

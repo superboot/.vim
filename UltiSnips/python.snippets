@@ -1,0 +1,81 @@
+snippet shell "run a shell command" b
+subprocess.call(('${1:command}', '${2:arg 1}', '${3:arg 2}'))
+$0
+endsnippet
+snippet db "Debug block" b
+if debug_$1 is True:
+	${0:${VISUAL:# debug code here...}}
+endsnippet
+snippet class "Outline for class" !b
+class $1(${2:object}):
+	'''
+	$3
+	'''
+	${2/.*(\w+),/self.$1\n/g}
+endsnippet
+snippet dmain "dunder main"
+if __name__ == '__main__':
+endsnippet
+snippet t "tripple quoted block"
+'''
+$0
+'''
+endsnippet
+snippet subclass "subclass definition block calling super." b
+class $1($2):
+    '''
+	$3
+    '''
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+endsnippet
+snippet init "init"
+def __init__(self, $1):
+'''
+$2
+'''
+`!p
+string = ''
+if t[1]:
+	string = t[1]
+for arg in string.split(','):
+	if arg.find('=') != -1:
+		continue
+	arg = arg.strip()
+	if arg.find('=') != -1:
+		arg = arg[:arg.index('=')-1].strip()
+	arg = arg.strip()
+	space = '    '
+	snip.rv += space + 'self.{arg} = {arg}\n'.format(arg=arg)
+`
+$0
+endsnippet
+snippet meth "Makes a class method."
+def $1(self, $2):
+	'''
+	$3
+	'''
+`!p
+string = ''
+if t[2]:
+	string = t[2]
+for arg in string.split(','):
+	arg = arg.strip()
+	if arg.find('=') != -1:
+		arg = arg[:arg.index('=')-1].strip()
+	arg = arg.strip()
+	space = '    '
+	snip.rv += space + 'self.{arg} = {arg}\n'.format(arg=arg)
+`
+$0
+endsnippet
+
+snippet eval "compute the expression and put it at the end"
+${0:`!p
+text = snip.v.text.strip()
+expressions = text.split('\n')
+for ex in expressions:
+	answer = eval(ex)
+	snip += str(ex) + ' = ' + str(answer)
+`}
+endsnippet
