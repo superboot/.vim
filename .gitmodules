@@ -40,3 +40,6 @@
 [submodule "bundle/uppercase-sql"]
 	path = bundle/uppercase-sql
 	url = https://github.com/jsborjesson/vim-uppercase-sql.git
+[submodule "bundle/readline-rsi"]
+	path = bundle/readline-rsi
+	url = https://github.com/riceissa/vim-rsi
