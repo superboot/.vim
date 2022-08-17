@@ -87,7 +87,7 @@ set spell spelllang=en_us
 " Fix spelling -- toggles list of correct words
 nnoremap <leader>f 1z=
 " Toggle spelling visuals -- like :set spell and :set nospell
-set spellfile=/home/john/.vim/spell/en.utf-8.add
+set spellfile=~/.vim/spell/en.utf-8.add
 " UTF-8 Encoding per http://stackoverflow.com/questions/16507777/vim-set-encoding-and-fileencoding-utf-8
 set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
@@ -112,10 +112,10 @@ set backupdir=~/.vim/backups " Set ~/.vim/backups to be the place to save backup
 " tell it to use an undo file
 set undofile
 " set a directory to store the undo history
-set undodir=/home/john/.vim/undo
+set undodir=~/.vim/undo
 
 " set a directory to store the swap files
-set directory=/home/john/.vim/swap
+set directory=~/.vim/swap
 
 set history=500		" keep 500 lines of command line history
 " ↑↑↑ END UNDO and HISTORY
@@ -230,11 +230,11 @@ nnoremap <leader>c :call ToggleCommentColor() <cr>
 " ↑↑↑ END IO Settings 
 " ↓↓↓ FILETYPE SPECIFIC AUTO COMMANDS
 " ↓↓↓ TMUX CONFIG
-autocmd BufRead /home/john/.tmux.conf setlocal foldmethod=marker
-autocmd BufRead /home/john/.tmux.conf setlocal foldmarker=///,\\\\
+autocmd BufRead ~/.tmux.conf setlocal foldmethod=marker
+autocmd BufRead ~/.tmux.conf setlocal foldmarker=///,\\\\
 " ↑↑↑ END TMUX CONFIG
 " ↓↓↓ APACHE CONFIG
-autocmd BufRead */apache2.conf setlocal keywordprg=/home/john/bin/apacheHelp
+autocmd BufRead */apache2.conf setlocal keywordprg=~/bin/apacheHelp
 " ↑↑↑ END APACHE CONFIG
 " ↓↓↓ PYTHON SETTINGS
 autocmd FileType python setlocal foldmethod=indent
