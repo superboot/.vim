@@ -43,3 +43,6 @@
 [submodule "bundle/readline-rsi"]
 	path = bundle/readline-rsi
 	url = https://github.com/riceissa/vim-rsi
+[submodule "bundle/vimgo"]
+	path = bundle/vimgo
+	url = https://github.com/fatih/vim-go.git
