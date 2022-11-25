@@ -306,6 +306,9 @@ endfunction
 " nnoremap <leader>i :setlocal titlestring=rprogrampad | set title
 " vnoremap <leader>r "+y | :!run-in-rstudio
 " ↑↑↑ END R SETTINGS
+" ↓↓↓ GOLANG SETTINGS
+autocmd FileType go nnoremap <F4> :!clear; go run  % <cr>
+" ↑↑↑ END GOLANG SETTINGS
 " ↓↓↓ TEXT FILES FORMAT
 autocmd FileType text setlocal wrap
 autocmd FileType text setlocal linebreak
