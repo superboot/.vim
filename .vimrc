@@ -308,6 +308,7 @@ endfunction
 " ↑↑↑ END R SETTINGS
 " ↓↓↓ GOLANG SETTINGS
 autocmd FileType go nnoremap <F4> :!clear; go run  % <cr>
+autocmd FileType go set nowrap
 " ↑↑↑ END GOLANG SETTINGS
 " ↓↓↓ TEXT FILES FORMAT
 autocmd FileType text setlocal wrap
@@ -579,3 +580,8 @@ let g:colorValue = 0
 " ↓↓↓ SYNTAX HIGHLIGHTING
 nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 " ↑↑↑ END Code to be folded
+" ↓↓↓ IMPORTS
+"let repo="~/.vim/rc.d"
+"source repo . "/vimwiki.conf"
+
+" ↑↑↑ IMPORTS
