@@ -309,6 +309,8 @@ endfunction
 " ↓↓↓ GOLANG SETTINGS
 autocmd FileType go nnoremap <F4> :!clear; go run  % <cr>
 autocmd FileType go set nowrap
+autocmd FileType go set softtabstop=2
+autocmd FileType go set tabstop=2
 " ↑↑↑ END GOLANG SETTINGS
 " ↓↓↓ TEXT FILES FORMAT
 autocmd FileType text setlocal wrap
