@@ -96,7 +96,10 @@ set fileencoding=utf-8  " The encoding written to file.
 nnoremap <leader>s :set spell!<CR>
 set nospell
 set scs
+" Use the currently active spell checking
 set  complete+=kspell
+" Scan the files given with the 'dictionary' option
+set  complete+=k
 " ↑↑↑   END SPELL CHECK
 " ↓↓↓ SEARCHING
 " Make search case insensitive
@@ -345,6 +348,8 @@ autocmd FileType yaml set sts=2
 autocmd FileType help nnoremap <return> <C-]>
 " Go to next matching help article.
 autocmd FileType help nnoremap <silent> <c-n> :tnext<CR> 
+" Make spacebar go down a page, like /usr/bin/less
+autocmd FileType help nnoremap <space> <c-f>
 " ↑↑↑ END 
 
 " ↑↑↑ END FILETYPE SPECIFIC AUTO COMMANDS
