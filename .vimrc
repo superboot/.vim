@@ -503,6 +503,15 @@ nnoremap <leader><space> <c-^>
 "  command. That command (read, or 'r') opens a new line under the cursor and places the
 "  output there.
 " inoremap <c-t> <esc>:r !tmux saveb -
+
+" Map ctrl-y in both normal and visual mode to yank to the tmux clipboard
+""   using the vim-tbone plugin from Tim Pope.
+nnoremap <silent><c-y> :Tyank<cr>
+vnoremap <silent><c-y> :Tyank<cr>
+" Map ctrl-p in both normal and visual mode to put from the tmux clipboard
+""   using the vim-tbone plugin from Tim Pope.
+nnoremap <silent><c-p> :Tput<cr>
+vnoremap <silent><c-p> :Tput<cr>
 " ↑↑↑ END TMUX COPY BUFFER 
 " ↓↓↓ READLINE BINDINGS
 nnoremap <c-u> c^
@@ -529,6 +538,16 @@ vnoremap <F1> <esc>
 " ↑↑↑ END ESCAPE CURSED F1 KEY
 " ↓↓↓ UTL PLUGIN -- LAUNCH EXTERNAL HANDLER
 " ↑↑↑ END UTL PLUGIN -- LAUNCH EXTERNAL HANDLER
+" ↓↓↓ CtrlSF search plugin
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+" ↑↑↑ END
 
 " ↑↑↑ END BINDINGS
 " ↓↓↓ COLOR AUDITION
