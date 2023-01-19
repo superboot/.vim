@@ -6,18 +6,13 @@ set foldmethod=marker
 set foldmarker=↓↓↓,↑↑↑
 set mouse=
 "   ↑↑↑     END VIM BASICS
-" ↓↓↓ VPASTE.NET BINDINGS
-" This section is for dumping text to vpaste.net
-" nnoremap <leader>vp :exec "w !vpaste ft=".&ft<CR>
-" vnoremap <leader>vp <ESC>:exec "'<,'>w !vpaste ft=".&ft<CR>
-" ↑↑↑ END VPASTE.NET BINDINGS
 " ↓↓↓ PATHOGEN
 filetype off
 filetype plugin indent off
 execute pathogen#infect()
 filetype plugin indent on
 syntax on
-Helptags
+"Helptags
 " ↑↑↑ END PATHOGEN
 " ↓↓↓ PLUGINS
 " ↓↓↓ NERD TREE
@@ -64,6 +59,8 @@ let g:netrw_altv=1
 let g:netrw_liststyle=0
 " ↑↑↑ END NETRW OPTIONS
 " ↓↓↓ UTL -- Open in external program.
+" Universal Text Linking. A URL opener that smartly handles many file types,
+" choosing the correct application to open each type with. 
 
 " Set elinks as the web browser to open links.
 let g:utl_cfg_hdl_scm_http_system = "silent !elinks -remote %u " 
