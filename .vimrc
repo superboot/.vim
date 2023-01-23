@@ -156,7 +156,7 @@ syntax on
 set scrolloff=3 " setting that makes the cursser stay 3 lines in from the top/bottom
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set ruler		" show the cursor position all the time
-set number
+set nonumber    " If we want line numbers, then show them. Not sure I use them enough to have them displayed all the time.
 set showcmd		" display incomplete commands
 set autoindent		" always set autoindenting on
 set listchars=trail:_,extends:>,tab:▸\ ,eol:↵
@@ -311,6 +311,7 @@ autocmd FileType go nnoremap <F4> :!clear; go run  % <cr>
 autocmd FileType go set nowrap
 autocmd FileType go set softtabstop=2
 autocmd FileType go set tabstop=2
+autocmd FileType go set shiftwidth=2
 " ↑↑↑ END GOLANG SETTINGS
 " ↓↓↓ TEXT FILES FORMAT
 autocmd FileType text setlocal wrap
@@ -603,8 +604,3 @@ let g:colorValue = 0
 " ↓↓↓ SYNTAX HIGHLIGHTING
 nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 " ↑↑↑ END Code to be folded
-" ↓↓↓ IMPORTS
-"let repo="~/.vim/rc.d"
-"source repo . "/vimwiki.conf"
-
-" ↑↑↑ IMPORTS
