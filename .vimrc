@@ -229,14 +229,14 @@ nnoremap <leader>c :call ToggleCommentColor() <cr>
 "is too short for the <leader> shortcuts etc.
 " ↑↑↑ END IO Settings 
 " ↓↓↓ FILETYPE SPECIFIC AUTO COMMANDS
-" ↓↓↓ TMUX CONFIG
+" ↓↓↓ TMUX
 autocmd BufRead ~/.tmux.conf setlocal foldmethod=marker
 autocmd BufRead ~/.tmux.conf setlocal foldmarker=///,\\\\
-" ↑↑↑ END TMUX CONFIG
+" ↑↑↑ END TMUX
 " ↓↓↓ APACHE CONFIG
 autocmd BufRead */apache2.conf setlocal keywordprg=~/bin/apacheHelp
-" ↑↑↑ END APACHE CONFIG
-" ↓↓↓ PYTHON SETTINGS
+" ↑↑↑ END APACHE
+" ↓↓↓ PYTHON 
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType python setlocal iskeyword+=.
 autocmd FileType python setlocal keywordprg=pydoc3
@@ -248,15 +248,15 @@ autocmd FileType python nnoremap <F4> :!clear; python3 -m ptpython -i % <cr>
 "autocmd FileType python nnoremap <leader>d :terminal pudb3 % <cr>
 autocmd FileType python nnoremap gd :!pudb3 % <cr>
 "nnoremap <S-F4> :echo 'this is crap' <cr>
-" ↑↑↑ END PYTHON SETTINGS
-" ↓↓↓ C SETTINGS
+" ↑↑↑ END PYTHON 
+" ↓↓↓ C 
 autocmd FileType c nnoremap <F4> :!clear; gcc -o f4compile % && ./f4compile <cr>
 autocmd FileType c set noexpandtab
-" ↑↑↑ END C SETTINGS
-" ↓↓↓ PHP SETTINGS
+" ↑↑↑ END C 
+" ↓↓↓ PHP 
 autocmd FileType php nnoremap <F4> :!clear; php % <cr>
-" ↑↑↑ END PHP SETTINGS
-" ↓↓↓ BASH SETTINGS
+" ↑↑↑ END PHP 
+" ↓↓↓ BASH 
 " ↓↓↓ AUTO COMMANDS
 autocmd FileType bash nnoremap <F4> :!clear; bash  % <cr>
 autocmd FileType bash let b:is_bash = 1
@@ -301,25 +301,25 @@ function! BashFoldText()
 endfunction
 " ↑↑↑ END Foldtext format
 " ↑↑↑ END BASH FOLDING
-" ↑↑↑ END BASH SETTINGS
-" ↓↓↓ R SETTINGS
+" ↑↑↑ END BASH 
+" ↓↓↓ R 
 " nnoremap <leader>i :setlocal titlestring=rprogrampad | set title
 " vnoremap <leader>r "+y | :!run-in-rstudio
-" ↑↑↑ END R SETTINGS
-" ↓↓↓ GOLANG SETTINGS
+" ↑↑↑ END R 
+" ↓↓↓ GOLANG 
 autocmd FileType go nnoremap <F4> :!clear; go run  % <cr>
 autocmd FileType go set nowrap
 autocmd FileType go set softtabstop=2
 autocmd FileType go set tabstop=2
 autocmd FileType go set shiftwidth=2
-" ↑↑↑ END GOLANG SETTINGS
+" ↑↑↑ END GOLANG 
 " ↓↓↓ TEXT FILES FORMAT
 autocmd FileType text setlocal wrap
 autocmd FileType text setlocal linebreak
 autocmd FileType text setlocal nolist " list disables linebreak, so we disable it
 "autocmd FileType text setlocal textwidth=78
 " ↑↑↑ END TEXT FILES FORMAT
-" ↓↓↓ WIKI SETTINGS
+" ↓↓↓ WIKI 
 "autocmd BufRead,BufNewFile */itsalltext/daveyweb*.txt set filetype=html
 "autocmd BufRead,BufNewFile */*-temp-files/daveyweb*.txt set filetype=html
 "autocmd BufRead,BufNewFile */*-temp-files/*/daveyweb/*.txt set filetype=html
@@ -335,12 +335,17 @@ autocmd BufRead,BufNewFile */daveyweb/*.txt setlocal keywordprg=Mediawikidocs
 autocmd BufRead,BufNewFile */daveyweb/*.txt nnoremap <leader>a i<font color=red>✓</font> <esc>BB
 " make 'chk' expand to a check mark. Moved to an ultisnip.
 "autocmd BufRead,BufNewFile */daveyweb/*.txt iab chk <font color=red>✓</font> 
-" ↑↑↑ END WIKI SETTINGS
-" ↓↓↓ YAML SETTINGS
+" ↑↑↑ END WIKI 
+" ↓↓↓ YAML 
 autocmd FileType yaml set sw=2
 autocmd FileType yaml set ts=2
 autocmd FileType yaml set sts=2
 " ↑↑↑ END Code to be folded
+" ↓↓↓ MARKDOWN 
+autocmd FileType markdown set sw=2
+autocmd FileType markdown set ts=2
+autocmd FileType markdown set sts=2
+" ↑↑↑ END
 " ↓↓↓ VIM HELP
 " Follow link under cursor.
 autocmd FileType help nnoremap <return> <C-]>
