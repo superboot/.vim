@@ -34,7 +34,7 @@ let g:UltiSnipsUsePythonVersion = 3
 nnoremap <leader>e :UltiSnipsEdit <cr>
 "   ↑↑↑     END UTILSNIPS
 " ↓↓↓ TAG BAR
-nnoremap <silent><leader>t :TagbarToggle<cr>
+nnoremap <silent><leader>T :TagbarToggle<cr>
 " ↑↑↑ END TAG BAR
 " " ↓↓↓ AIRLINE
 set laststatus=2
@@ -233,10 +233,11 @@ endfunction
 " ↑↑↑ END R 
 " ↓↓↓ GOLANG 
 autocmd FileType go nnoremap <F4> :!clear; go run  % <cr>
-autocmd FileType go set nowrap
-autocmd FileType go set softtabstop=2
-autocmd FileType go set tabstop=2
-autocmd FileType go set shiftwidth=2
+autocmd FileType go setlocal foldmethod=syntax
+autocmd FileType go setlocal nowrap
+autocmd FileType go setlocal softtabstop=2
+autocmd FileType go setlocal tabstop=2
+autocmd FileType go setlocal shiftwidth=2
 autocmd FileType go nnoremap <leader>t :!clear; go test<cr>
 " ↑↑↑ END GOLANG 
 " ↓↓↓ TEXT FILES FORMAT
@@ -289,7 +290,8 @@ syntax on
 set scrolloff=3 " setting that makes the cursser stay 3 lines in from the top/bottom
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set ruler		" show the cursor position all the time
-set nonumber    " If we want line numbers, then show them. Not sure I use them enough to have them displayed all the time.
+"set nonumber    " If we want line numbers, then show them. Not sure I use them enough to have them displayed all the time.
+set number    " I do...
 set showcmd		" display incomplete commands
 set autoindent		" always set autoindenting on
 set listchars=trail:_,extends:>,tab:▸\ ,eol:↵
@@ -466,8 +468,7 @@ vnoremap . :normal .
 nnoremap <leader>o :silent set filetype=votl<cr>
 " ↑↑↑ END FILETYPE MODIFICATION BINDINGS
 " ↓↓↓ ABREVIATIONS
-iab <expr> dts strftime("%m/%d/%y %I:%M:%P")"
-iab <expr> dtsm strftime("%m/%d/%y %T") \&mdash\; "
+iab <expr> dts strftime("%Y-%m-%d %I:%M%P")"
 iab teh the
 "iab ~~ Superboot
 " ↑↑↑ END ABREVIATIONS
