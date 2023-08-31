@@ -188,6 +188,11 @@ autocmd FileType sh nnoremap <F4> :!clear; bash % <cr>
 autocmd FileType sh setlocal keywordprg=man
 autocmd FileType sh setlocal complete=.,w,b,u,t,i
 autocmd FileType sh let b:is_bash = 1
+" Make sure bashrc has the correct folding. Regular bash scripts are set to
+" fold on syntax, but this file has an abnormal structure that lends itself
+" better to marker-based folding.
+autocmd BufRead,BufNewFile */.bashrc setlocal foldmethod=marker
+autocmd BufRead,BufNewFile */.bashrc setlocal foldmarker=↓↓↓,↑↑↑
 "autocmd FileType bash setlocal foldtext=BashFoldText()
 "autocmd FileType sh setlocal foldtext=BashFoldText()
 " ↑↑↑ END AUTO COMMANDS
