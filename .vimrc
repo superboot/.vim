@@ -440,6 +440,10 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
 " Binding to reflow text to 72 character lines
 vnoremap <Leader>f :!fmt<cr>
+" Move current line down one line
+nnoremap <C-J> ddp
+" Move current line down one line
+nnoremap <C-K> ddkP
 " ↑↑↑ END SPECIAL TEXT MANIPULATION BINDINGS
 " ↓↓↓ COMMAND-MODE BINDINGS
 cnoremap <C-A>		<Home>
