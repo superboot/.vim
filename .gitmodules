@@ -61,3 +61,6 @@
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired
+[submodule "bundle/powershell"]
+	path = bundle/powershell
+	url = https://github.com/PProvost/vim-ps1.git
