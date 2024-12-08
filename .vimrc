@@ -260,11 +260,18 @@ autocmd FileType text setlocal nolist " list disables linebreak, so we disable i
 function! Mediawikidocs(kw)
     !firefox 'https://www.mediawiki.org/wiki/Manual:$' . kw 
 endfunction
+"    DAVEYWEB STUFF
 autocmd BufRead,BufNewFile *daveyweb/*.txt set filetype=html
 autocmd BufRead,BufNewFile */daveyweb/*.txt setlocal fdm=marker
 autocmd BufRead,BufNewFile */daveyweb/*.txt setlocal foldmarker=↓↓↓,↑↑↑
 autocmd BufRead,BufNewFile */daveyweb/*.txt setlocal keywordprg=Mediawikidocs
 autocmd BufRead,BufNewFile */daveyweb/*.txt nnoremap <leader>a i<font color=red>✓</font> <esc>BB
+"    QUTEBROWSER STUFF
+autocmd BufRead,BufNewFile *qutebrowser-editor-* set filetype=html
+autocmd BufRead,BufNewFile */qutebrowser-editor-* setlocal fdm=marker
+autocmd BufRead,BufNewFile */qutebrowser-editor-* setlocal foldmarker=↓↓↓,↑↑↑
+autocmd BufRead,BufNewFile */qutebrowser-editor-* setlocal keywordprg=Mediawikidocs
+autocmd BufRead,BufNewFile */qutebrowser-editor-* nnoremap <leader>a i<font color=red>✓</font> <esc>BB
 " make 'chk' expand to a check mark. Moved to an ultisnip.
 "autocmd BufRead,BufNewFile */daveyweb/*.txt iab chk <font color=red>✓</font> 
 " ↑↑↑ END WIKI 
@@ -624,3 +631,28 @@ let g:colorValue = 0
 " ↓↓↓ SYNTAX HIGHLIGHTING
 nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 " ↑↑↑ END Code to be folded
+" ↓↓↓ MARKDOWN SYNTAX FOLDING
+function! MarkdownLevel()
+    if getline(v:lnum) =~ '^# .*$'
+        return ">1"
+    endif
+    if getline(v:lnum) =~ '^## .*$'
+        return ">2"
+    endif
+    if getline(v:lnum) =~ '^### .*$'
+        return ">3"
+    endif
+    if getline(v:lnum) =~ '^#### .*$'
+        return ">4"
+    endif
+    if getline(v:lnum) =~ '^##### .*$'
+        return ">5"
+    endif
+    if getline(v:lnum) =~ '^###### .*$'
+        return ">6"
+    endif
+    return "=" 
+endfunction
+au BufEnter *.md setlocal foldexpr=MarkdownLevel()  
+au BufEnter *.md setlocal foldmethod=expr     
+" ↑↑↑ END MARKDOWN SYNTAX FOLDING
