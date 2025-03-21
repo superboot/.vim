@@ -17,3 +17,15 @@ hi obsMarkdownH6   ctermfg=grey
 hi link markdownListMarker obsMarkdownListMarker
 hi obsMarkdownListMarker   ctermfg=red
 
+" ######### Make [links](http://blah.com) to display as link.
+" Match the link text between brackets and conceal everything else
+syntax match markdownLink '\[\zs.\{-}\ze\]\((.*)\)' conceal
+syntax match markdownLink 'dude' conceal
+
+" Set the conceal level to make the concealed text completely hidden
+set conceallevel=2
+set concealcursor=nvic  " Show concealed text when cursor is on the line
+" set conceallevel=2
+
+" Make sure the link text is visible and perhaps underlined
+hi def link markdownLink Underlined

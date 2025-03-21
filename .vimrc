@@ -284,6 +284,8 @@ autocmd FileType yaml set sts=2
 autocmd FileType markdown set sw=2
 autocmd FileType markdown set ts=2
 autocmd FileType markdown set sts=2
+autocmd FileType markdown source ~/.vim/after/syntax/markdown.vim
+autocmd FileType markdown set linebreak
 " ↑↑↑ END
 " ↓↓↓ VIM HELP
 " Follow link under cursor.
