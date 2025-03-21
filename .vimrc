@@ -246,9 +246,13 @@ autocmd FileType go setlocal shiftwidth=2
 autocmd FileType go nnoremap <leader>t :!clear; go test<cr>
 " ↑↑↑ END GOLANG 
 " ↓↓↓ TEXT FILES FORMAT
+" Set text to visualy wrap at 80 (or watever we set) characters. 
 autocmd FileType text setlocal wrap
 autocmd FileType text setlocal linebreak
 autocmd FileType text setlocal nolist " list disables linebreak, so we disable it
+autocmd FileType text setlocal textwidth=0
+autocmd FileType text setlocal wrapmargin=0
+autocmd FileType text setlocal columns=80
 "autocmd FileType text setlocal textwidth=78
 " ↑↑↑ END TEXT FILES FORMAT
 " ↓↓↓ WIKI 
@@ -285,7 +289,13 @@ autocmd FileType markdown set sw=2
 autocmd FileType markdown set ts=2
 autocmd FileType markdown set sts=2
 autocmd FileType markdown source ~/.vim/after/syntax/markdown.vim
-autocmd FileType markdown set linebreak
+" Visual wrapping of text at 80 characters
+autocmd FileType markdown setlocal wrap
+autocmd FileType markdown setlocal linebreak
+autocmd FileType markdown setlocal nolist " list disables linebreak, so we disable it
+autocmd FileType markdown setlocal textwidth=0
+autocmd FileType markdown setlocal wrapmargin=0
+autocmd FileType markdown setlocal columns=80
 " ↑↑↑ END
 " ↓↓↓ VIM HELP
 " Follow link under cursor.
