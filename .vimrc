@@ -73,7 +73,8 @@ function! UTLAndReDraw() " Redraw after UTL mangles the screen.
     redraw!
 endfunction
 
-nnoremap <silent><return> :call UTLAndReDraw()<return>
+" I've removed the following mapping, because the plugin isn't installed anymore..
+"nnoremap <silent><return> :call UTLAndReDraw()<return> 
 
 " ↑↑↑ END UTL -- Open in external program.
 " ↑↑↑ END PLUGINS
@@ -404,6 +405,7 @@ inoremap kj <ESC>
 nnoremap <leader>z :let &scrolloff=999-&scrolloff<CR>
 nnoremap ds <S-a>
 nnoremap <silent><leader>w :set wrap!<CR>
+nnoremap <silent><CR> :set nu!<CR>
 " ↑↑↑ END UI BINDINGS
 " ↓↓↓ WORKSPACE MOVMENT BINDINGS
 " Make < and > navigate tabs like elinks. Just use visual mode for indenting.
